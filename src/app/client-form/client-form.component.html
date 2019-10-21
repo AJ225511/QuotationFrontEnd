@@ -1,0 +1,36 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #clientForm="ngForm">
+      <div class="form-group">
+        <label for="fname">Name</label>
+        <input type="text" [(ngModel)]="client.fname" 
+          class="form-control" id="fname" fname="fname" placeholder="Enter your first name"
+          required #fname="ngModel">
+      </div>
+      <div [hidden]="!fname.pristine" class="alert alert-danger">First Name is required</div>
+      <div class="form-group">
+        <label for="lname">Last Name</label>
+        <input type="text" [(ngModel)]="client.lname" 
+          class="form-control" id="lname" fname="lname" placeholder="Enter your last name"
+          required #lname="ngModel">
+        <div [hidden]="!lname.pristine" class="alert alert-danger">Last Name is required</div>
+		<div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" [(ngModel)]="client.address" 
+          class="form-control" id="address" address="address" placeholder="Enter your address"
+          required #address="ngModel">
+      </div>
+      <div [hidden]="!address.pristine" class="alert alert-danger">Address is required</div>
+	  <div class="form-group">
+        <label for="clientId">ID</label>
+        <input type="text" [(ngModel)]="client.clientId" 
+          class="form-control" id="clientId" clientId="clientId" placeholder="Enter your ID"
+          required #clientId="ngModel">
+      </div>
+      <div [hidden]="!clientId.pristine" class="alert alert-danger">ID is required</div>
+      </div>
+      <button type="submit" [disabled]="!clientForm.form.valid" 
+        class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>
